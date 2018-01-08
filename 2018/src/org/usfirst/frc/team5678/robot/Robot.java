@@ -32,6 +32,7 @@ public class Robot extends TimedRobot {
 	Spark L1 = new Spark(0);
 	Spark R1 = new Spark(1);
 	Spark updw = new Spark(2);
+	Spark claw = new Spark(3);
 	Joystick stick2 = new Joystick(1);
 	private static final String kDefaultAuto = "Default";
 	private static final String kCustomAuto = "My Auto";
@@ -98,7 +99,7 @@ public class Robot extends TimedRobot {
 		if(myRobot.isAlive()) {
 			myRobot.setMaxOutput(sn);
 			myRobot.setSensitivity(sn);
-			myRobot.arcadeDrive(stick);
+			myRobot.tankDrive(stick, stick2);
 			if(stick.getRawButton(4)&Limitup.equals(1)) {
 				updw.set(1);
 			}
