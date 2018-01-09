@@ -26,7 +26,6 @@ import edu.wpi.first.wpilibj.AnalogInput;
  * project.
  */
 public class Robot extends TimedRobot {
-	double Messwitheveryone = 0;
 	DigitalInput Limitup = new DigitalInput(1);
 	DigitalInput Limitdw = new DigitalInput(2);
 	Spark L1 = new Spark(0);
@@ -105,23 +104,7 @@ public class Robot extends TimedRobot {
 			}
 			if(stick.getRawButton(5)&Limitdw.equals(1)) {
 				updw.set(-1);
-			}
-			
-			if(stick2.getRawButton(5));{
-			Messwitheveryone = 1;
-			}
-			if(Messwitheveryone == 1) {
-				myRobot.setSensitivity(-sn);
-				myRobot.setMaxOutput(-sn);
-				myRobot.arcadeDrive(stick);
-				Timer.delay(.005);
-				if(stick2.getRawButton(1)) {
-					Messwitheveryone = 0;
-				}
-			}
-			
-			
-			
+			}			
 			
 			Timer.delay(.005);
 		}
