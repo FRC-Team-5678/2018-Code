@@ -100,7 +100,7 @@ public class Robot extends TimedRobot {
 		if(myRobot.isAlive()) {
 			myRobot.setMaxOutput(sn);
 			//myRobot.setSensitivity(sn);
-			myRobot.tankDrive(1,1);
+			myRobot.arcadeDrive(stick.getX(), stick.getZ());
 			if(stick.getRawButton(4)&Limitup.equals(1)) {
 				updw.set(1);
 			}
