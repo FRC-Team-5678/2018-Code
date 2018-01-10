@@ -10,6 +10,7 @@ package org.usfirst.frc.team5678.robot;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.RobotDrive;
 import edu.wpi.first.wpilibj.Spark;
+import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -28,8 +29,8 @@ import edu.wpi.first.wpilibj.AnalogInput;
 public class Robot extends TimedRobot {
 	DigitalInput Limitup = new DigitalInput(1);
 	DigitalInput Limitdw = new DigitalInput(2);
-	Spark L1 = new Spark(0);
-	Spark R1 = new Spark(1);
+	Talon L1 = new Talon(0);
+	Talon R1 = new Talon(1);
 	Spark updw = new Spark(2);
 	Spark claw = new Spark(3);
 	Joystick stick2 = new Joystick(1);
