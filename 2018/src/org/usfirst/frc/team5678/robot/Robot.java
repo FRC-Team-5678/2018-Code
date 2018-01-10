@@ -7,18 +7,9 @@
 
 package org.usfirst.frc.team5678.robot;
 
-import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.RobotDrive;
-import edu.wpi.first.wpilibj.Spark;
-import edu.wpi.first.wpilibj.Talon;
-import edu.wpi.first.wpilibj.TimedRobot;
-import edu.wpi.first.wpilibj.Timer;
-import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
-import edu.wpi.first.wpilibj.CameraServer;
-import edu.wpi.first.wpilibj.DigitalInput;
-import edu.wpi.first.wpilibj.AnalogInput;
-
+import edu.wpi.first.wpilibj.*;
+import edu.wpi.first.wpilibj.drive.*;
+import edu.wpi.first.wpilibj.smartdashboard.*;
 /**
  * The VM is configured to automatically run this class, and to call the
  * functions corresponding to each mode, as described in the IterativeRobot
@@ -27,19 +18,28 @@ import edu.wpi.first.wpilibj.AnalogInput;
  * project.
  */
 public class Robot extends TimedRobot {
+	//Limit Setup
 	DigitalInput Limitup = new DigitalInput(1);
 	DigitalInput Limitdw = new DigitalInput(2);
+	
+	//Motor Setup
 	Talon L1 = new Talon(0);
-	Talon R1 = new Talon(1);
+	Talon R1 = new Talon(1); 
 	Spark updw = new Spark(2);
 	Spark claw = new Spark(3);
-	Joystick stick2 = new Joystick(1);
-	private static final String kDefaultAuto = "Default";
-	private static final String kCustomAuto = "My Auto";
+	
+	//Smart Dashboard Setup
+	private static final String kDefaultAuto = "Default";//Default Auto
+	private static final String kCustomAuto = "My Auto";//Custom Auto
 	private String m_autoSelected;
 	private SendableChooser<String> m_chooser = new SendableChooser<>();
-	RobotDrive myRobot = new RobotDrive(L1, R1);
+	
+	//Drive Setup
+	DifferentialDrive myRobot = new DifferentialDrive(L1, R1);
+	
+	//Control Setup
 	Joystick stick = new Joystick(0);
+	Joystick stick2 = new Joystick(1);	
 	double sn = (stick.getThrottle()+1)/2;
 
 	/**
@@ -75,6 +75,7 @@ public class Robot extends TimedRobot {
 	/**
 	 * This function is called periodically during autonomous.
 	 */
+	
 	@Override
 	public void autonomousPeriodic() {
 		switch (m_autoSelected) {
@@ -83,7 +84,7 @@ public class Robot extends TimedRobot {
 				break;
 			case kDefaultAuto:
 			default:
-				myRobot.drive(1, 0);
+				//myRobot.drive(1, 0);
 				Timer.delay(5);
 				myRobot.stopMotor();
 				break;
@@ -98,8 +99,8 @@ public class Robot extends TimedRobot {
 		myRobot.setSafetyEnabled(true);
 		if(myRobot.isAlive()) {
 			myRobot.setMaxOutput(sn);
-			myRobot.setSensitivity(sn);
-			myRobot.tankDrive(stick, stick2);
+			//myRobot.setSensitivity(sn);
+			myRobot.tankDrive(1,1);
 			if(stick.getRawButton(4)&Limitup.equals(1)) {
 				updw.set(1);
 			}
