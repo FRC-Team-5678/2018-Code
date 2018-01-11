@@ -110,19 +110,11 @@ public class Robot extends TimedRobot {
 			myRobot.arcadeDrive(-stick.getY(), stick.getZ());
 			//sets movment bassed off of - y axis and z axis
 			Timer.delay(.005);//motor update
-			if(stick.getRawButton(4)&&Limitup.equals(1)) {
-				//if the 4 buttun is pressed and the top limit switch isent dosen moves claw upwords
-				updw.set(1);
-			}
-			if(stick.getRawButton(5)&&Limitdw.equals(1)) {
-				//if button 5 is pressend and bottom limit switch isent the thing will go down
-				updw.set(-1);
-			}			
-			
-			
+			if(stick.getRawButton(4)&&Limitup.get()) {updw.set(1);}//if the 4 buttun is pressed and the top limit switch isent dosen moves claw upwords
+			else if(stick.getRawButton(5)&&Limitdw.get()) {updw.set(-1);}//if button 5 is pressend and bottom limit switch isent the thing will go down
+			else{updw.set(0);}
 			Timer.delay(.005);
 		}
-		
 		Timer.delay(.005);
 	}
 
@@ -136,5 +128,6 @@ public class Robot extends TimedRobot {
 		//System.out.println("Button 4"+stick.getRawButton(4));
 		System.out.println("Limit Down"+Limitdw.get());
 		//System.out.println("Button 5"+stick.getRawButton(5));
+		updw.set(1);
 	}
 }
