@@ -122,9 +122,9 @@ public class Robot extends TimedRobot {
 	@Override
 	public void testPeriodic() {
 		System.out.println(sn);
-		System.out.println("Limit UP"+Limitup.equals(1));
+		System.out.println("Limit UP"+Limitup.get());
 		System.out.println("Button 4"+stick.getRawButton(4));
-		System.out.println("Limit Down"+Limitdw.equals(1));
+		System.out.println("Limit Down"+Limitdw.get());
 		System.out.println("Button 5"+stick.getRawButton(5));
 	}
 }
