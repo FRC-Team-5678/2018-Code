@@ -96,17 +96,19 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void teleopPeriodic() {
-		myRobot.setSafetyEnabled(true);
+		myRobot.setSafetyEnabled(false);
 		if(myRobot.isAlive()) {
-			myRobot.setMaxOutput(sn);
+			myRobot.setMaxOutput((stick.getThrottle()*-1+1)/2);
 			//myRobot.setSensitivity(sn);
-			myRobot.arcadeDrive(stick.getX(), stick.getZ());
-			if(stick.getRawButton(4)&Limitup.equals(1)) {
+			myRobot.arcadeDrive(-stick.getY(), stick.getZ());
+			Timer.delay(.005);
+			if(stick.getRawButton(4)&&Limitup.equals(1)) {
 				updw.set(1);
 			}
-			if(stick.getRawButton(5)&Limitdw.equals(1)) {
+			if(stick.getRawButton(5)&&Limitdw.equals(1)) {
 				updw.set(-1);
 			}			
+			
 			
 			Timer.delay(.005);
 		}
@@ -119,5 +121,10 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void testPeriodic() {
+		System.out.println(sn);
+		System.out.println(Limitup.equals(1));
+		System.out.println(stick.getRawButton(4));
+		System.out.println(Limitdw.equals(1));
+		System.out.println(stick.getRawButton(5));
 	}
 }
