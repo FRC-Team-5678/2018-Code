@@ -30,6 +30,7 @@ public class Robot extends TimedRobot {
 	
 	//Smart Dashboard Setup
 	private static final String kDefaultAuto = "Default";//Default Auto
+	private static final String Middle = "Middle";//set for starting in 2 pestion
 	private static final String kCustomAuto = "My Auto";//Custom Auto
 	private String m_autoSelected;
 	private SendableChooser<String> m_chooser = new SendableChooser<>();
@@ -50,6 +51,7 @@ public class Robot extends TimedRobot {
 	public void robotInit() {
 		m_chooser.addDefault("Default Auto", kDefaultAuto);
 		m_chooser.addObject("My Auto", kCustomAuto);
+		m_chooser.addObject("Middle", Middle);
 		SmartDashboard.putData("Auto choices", m_chooser);
 	}
 
@@ -88,6 +90,9 @@ public class Robot extends TimedRobot {
 				Timer.delay(5);
 				myRobot.stopMotor();
 				break;
+			case Middle:
+				
+				break;
 		}
 	}
 
@@ -98,14 +103,19 @@ public class Robot extends TimedRobot {
 	public void teleopPeriodic() {
 		myRobot.setSafetyEnabled(false);
 		if(myRobot.isAlive()) {
+			//checks to make sure robot is on and in telop mode
 			myRobot.setMaxOutput((stick.getThrottle()*-1+1)/2);
+			//sets max speed based off of throtle
 			//myRobot.setSensitivity(sn);
 			myRobot.arcadeDrive(-stick.getY(), stick.getZ());
-			Timer.delay(.005);
+			//sets movment bassed off of - y axis and z axis
+			Timer.delay(.005);//motor update
 			if(stick.getRawButton(4)&&Limitup.equals(1)) {
+				//if the 4 buttun is pressed and the top limit switch isent dosen moves claw upwords
 				updw.set(1);
 			}
 			if(stick.getRawButton(5)&&Limitdw.equals(1)) {
+				//if button 5 is pressend and bottom limit switch isent the thing will go down
 				updw.set(-1);
 			}			
 			
@@ -121,10 +131,10 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void testPeriodic() {
-		System.out.println(sn);
+		//System.out.println(sn);
 		System.out.println("Limit UP"+Limitup.get());
-		System.out.println("Button 4"+stick.getRawButton(4));
+		//System.out.println("Button 4"+stick.getRawButton(4));
 		System.out.println("Limit Down"+Limitdw.get());
-		System.out.println("Button 5"+stick.getRawButton(5));
+		//System.out.println("Button 5"+stick.getRawButton(5));
 	}
 }
