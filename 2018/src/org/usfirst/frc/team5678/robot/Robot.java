@@ -42,6 +42,9 @@ public class Robot extends TimedRobot {
 	Joystick stick = new Joystick(0);
 	Joystick stick2 = new Joystick(1);	
 	double sn = (stick.getThrottle()+1)/2;
+	
+	//Variables 
+	boolean reversed =(false);
 
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -105,9 +108,14 @@ public class Robot extends TimedRobot {
 		if(myRobot.isAlive()) {
 			//checks to make sure robot is on and in telop mode
 			myRobot.setMaxOutput((stick.getThrottle()*-1+1)/2);
-			//sets max speed based off of throtle
-			//myRobot.setSensitivity(sn);
-			myRobot.arcadeDrive(-stick.getY(), stick.getZ());
+			
+			if(stick.getRawButton(7)) {reversed=true;}//if button 7 is pressed reversed=true
+			else if(stick.getRawButton(8)) {reversed=false;}//if button 5 is pressed reversed=false
+			
+			if(reversed){myRobot.arcadeDrive(-stick.getY(), -stick.getZ());}//reverse derection
+			else {myRobot.arcadeDrive(stick.getY(), stick.getZ());}//non reverse derection
+			
+			
 			//sets movment bassed off of - y axis and z axis
 			Timer.delay(.005);//motor update
 			if(stick.getRawButton(4)&&Limitup.get()) {updw.set(1);}//if the 4 buttun is pressed and the top limit switch isent dosen moves claw upwords
