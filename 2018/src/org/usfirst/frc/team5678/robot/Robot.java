@@ -110,7 +110,7 @@ public class Robot extends TimedRobot {
 			myRobot.setMaxOutput((stick.getThrottle()*-1+1)/2);
 			
 			if(stick.getRawButton(7)) {reversed=true;}//if button 7 is pressed reversed=true
-			else if(stick.getRawButton(8)) {reversed=false;}//if button 5 is pressed reversed=false
+			else if(stick.getRawButton(8)) {reversed=false;}//if button 8 is pressed reversed=false
 			
 			if(reversed){myRobot.arcadeDrive(-stick.getY(), -stick.getZ());}//reverse direction
 			else {myRobot.arcadeDrive(stick.getY(), stick.getZ());}//non reverse direction
@@ -131,10 +131,10 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void testPeriodic() {
-		System.out.println("Limit UP"+Limitup.get());
+		//System.out.println("Limit UP"+Limitup.get());
 		//System.out.println("Button 4"+stick.getRawButton(4));
-		System.out.println("Limit Down"+Limitdw.get());
+		//System.out.println("Limit Down"+Limitdw.get());
 		//System.out.println("Button 5"+stick.getRawButton(5));
-		updw.set(1);
+		//updw.set(1);
 	}
 }
