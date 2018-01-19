@@ -83,7 +83,16 @@ public class Robot extends TimedRobot {
 	
 	@Override
 	public void autonomousPeriodic() {
-		switch (m_autoSelected) {
+		autonomousInit();//int autonomous
+		String GameSide;
+		GameSide = DriverStation.getInstance().getGameSpecificMessage();//get witch side of the switch is friendly
+		if(GameSide.charAt(0) == 'L') {//if team side is on the left put code in here
+			
+		}
+		else {//if team side is on the right put code here
+			
+		}
+		/*switch (m_autoSelected) {
 			case kCustomAuto:
 				// Put custom auto code here
 				break;
@@ -96,7 +105,7 @@ public class Robot extends TimedRobot {
 			case Middle:
 				
 				break;
-		}
+		}*/
 	}
 
 	/**
