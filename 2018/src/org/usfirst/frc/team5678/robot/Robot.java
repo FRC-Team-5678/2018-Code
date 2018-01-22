@@ -23,8 +23,8 @@ public class Robot extends TimedRobot {
 	DigitalInput Limitdw = new DigitalInput(2);
 	
 	//Motor Setup
-	Talon L1 = new Talon(0);
-	Talon R1 = new Talon(1); 
+	Spark L1 = new Spark(0);
+	Spark R1 = new Spark(1); 
 	Spark updw = new Spark(2);
 	Spark claw = new Spark(3);
 	
@@ -85,20 +85,41 @@ public class Robot extends TimedRobot {
 	public void autonomousPeriodic() {
 		autonomousInit();//int autonomous
 		String GameSide;
+		int Startingp;
+		Startingp = DriverStation.getInstance().getLocation();
 		GameSide = DriverStation.getInstance().getGameSpecificMessage();//get witch side of the switch is friendly
-		if(GameSide.charAt(0) == 'L') {//if team side is on the left put code in here
+		if(GameSide.charAt(0) == 'L' && Startingp(1)) {//if team side is on the left put code in here
+			myRobot.arcadeDrive(.05, 40);
+			
+			Timer.delay(5);
+			myRobot.stopMotor();
+		}
+		elseif(GameSide.charAt(0) == 'L' && Startingp(2));{
+		
+		}
+		elseif(GameSide.charAt(0) == 'L' && Startingp(3));{
 			
 		}
-		else {//if team side is on the right put code here
+		elseif(GameSide.charAt(0) == 'r' && Startingp(1));{
 			
 		}
+		elseif(GameSide.charAt(0) == 'R' && Startingp(2));{
+			
+		}
+		elseif(GameSide.charAt(0) == 'R' && Startingp(1));{
+			
+		}
+		elseif(GameSide.charAt(0) == 'R' && Startingp(3));{
+			
+		}
+		
 		/*switch (m_autoSelected) {
 			case kCustomAuto:
 				// Put custom auto code here
 				break;
 			case kDefaultAuto:
 			default:
-				//myRobot.drive(1, 0);
+				//myRobot.drive(1, 0); 
 				Timer.delay(5);
 				myRobot.stopMotor();
 				break;
@@ -106,6 +127,16 @@ public class Robot extends TimedRobot {
 				
 				break;
 		}*/
+	}
+
+	private void elseif(boolean b) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	private boolean Startingp(int i) {
+		// TODO Auto-generated method stub
+		return false;
 	}
 
 	/**
