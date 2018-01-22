@@ -100,7 +100,7 @@ public class Robot extends TimedRobot {
 		elseif(GameSide.charAt(0) == 'L' && Startingp(3));{
 			
 		}
-		elseif(GameSide.charAt(0) == 'r' && Startingp(1));{
+		elseif(GameSide.charAt(0) == 'L' && Startingp(1));{
 			
 		}
 		elseif(GameSide.charAt(0) == 'R' && Startingp(2));{
