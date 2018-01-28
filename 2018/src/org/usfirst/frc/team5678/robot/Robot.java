@@ -88,29 +88,27 @@ public class Robot extends TimedRobot {
 		int Startingp;
 		Startingp = DriverStation.getInstance().getLocation();
 		GameSide = DriverStation.getInstance().getGameSpecificMessage();//get witch side of the switch is friendly
-		if(GameSide.charAt(0) == 'L' && Startingp(1)) {//if team side is on the left put code in here
-			myRobot.arcadeDrive(.05, 40);
-			
-			Timer.delay(5);
-			myRobot.stopMotor();
+		if(GameSide.charAt(0) == 'L'){
+			if(Startingp(1)) {
+			;
+			}
+			else if(Startingp(2)){
+				System.out.println();
+			}
+			else if(Startingp(3)){
+				
+			}
 		}
-		elseif(GameSide.charAt(0) == 'L' && Startingp(2));{
-		
-		}
-		elseif(GameSide.charAt(0) == 'L' && Startingp(3));{
-			
-		}
-		elseif(GameSide.charAt(0) == 'L' && Startingp(1));{
-			
-		}
-		elseif(GameSide.charAt(0) == 'R' && Startingp(2));{
-			
-		}
-		elseif(GameSide.charAt(0) == 'R' && Startingp(1));{
-			
-		}
-		elseif(GameSide.charAt(0) == 'R' && Startingp(3));{
-			
+		else if(GameSide.charAt(0) == 'R'){
+			if(Startingp(1)) {
+				
+			}
+			else if(Startingp(2)){
+				
+			}
+			else if(Startingp(3)){
+				
+			}
 		}
 		
 		/*switch (m_autoSelected) {
