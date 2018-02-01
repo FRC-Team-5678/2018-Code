@@ -164,8 +164,8 @@ public class Robot extends TimedRobot {
 			if(stick.getRawButton(7)) {reversed=true;}//if button 7 is pressed reversed=true
 			else if(stick.getRawButton(8)) {reversed=false;}//if button 8 is pressed reversed=false
 			
-			if(reversed){myRobot.arcadeDrive(-stick.getY(), -stick.getZ());}//reverse direction
-			else {myRobot.arcadeDrive(stick.getY(), stick.getZ());}//non reverse direction
+			if(reversed){myRobot.arcadeDrive(-stick.getY(), -stick.getX());}//reverse direction
+			else {myRobot.arcadeDrive(stick.getY(), stick.getX());}//non reverse direction
 			
 			
 			//sets movement based off of - y axis and z axis
