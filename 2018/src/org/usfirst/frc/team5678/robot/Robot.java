@@ -10,9 +10,9 @@ package org.usfirst.frc.team5678.robot;
 import edu.wpi.first.wpilibj.*;
 import edu.wpi.first.wpilibj.drive.*;
 import edu.wpi.first.wpilibj.smartdashboard.*;
-import jaci.pathfinder.Pathfinder;
-import jaci.pathfinder.Trajectory;
-import jaci.pathfinder.Waypoint;
+//import jaci.pathfinder.Pathfinder;
+//import jaci.pathfinder.Trajectory;
+//import jaci.pathfinder.Waypoint;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -49,8 +49,10 @@ public class Robot extends TimedRobot {
 	
 	//Variables 
 	boolean reversed =(false);
+	String GameSide;
+	int Startingp;
 	
-	Waypoint[] points = new Waypoint[] {
+	/*Waypoint[] points = new Waypoint[] {
 		    new Waypoint(-4, -1, Pathfinder.d2r(-45)),      // Waypoint @ x=-4, y=-1, exit angle=-45 degrees
 		    new Waypoint(-2, -2, 0),                        // Waypoint @ x=-2, y=-2, exit angle=0 radians
 		    new Waypoint(0, 0, 0)                           // Waypoint @ x=0, y=0,   exit angle=0 radians
@@ -58,7 +60,7 @@ public class Robot extends TimedRobot {
 
 		Trajectory.Config config = new Trajectory.Config(Trajectory.FitMethod.HERMITE_CUBIC, Trajectory.Config.SAMPLES_HIGH, 0.05, 1.7, 2.0, 60.0);
 		Trajectory trajectory = Pathfinder.generate(points, config);
-	
+	*/
 
 	/**
 	 * This function is run when the robot is first started up and should be
@@ -98,13 +100,17 @@ public class Robot extends TimedRobot {
 	@Override
 	public void autonomousPeriodic() {
 		autonomousInit();//int autonomous
-		String GameSide;
-		int Startingp;
 		Startingp = DriverStation.getInstance().getLocation();
 		GameSide = DriverStation.getInstance().getGameSpecificMessage();//get witch side of the switch is friendly
+		myRobot.setSafetyEnabled(isDisabled());
 		if(GameSide.charAt(0) == 'L'){
-			if(Startingp(1)) {
-			;
+			if(Startingp==1) {
+			myRobot.arcadeDrive(-1,- 0);
+			Timer.delay(3);
+			myRobot.stopMotor();
+			Timer.delay(.005);
+			myRobot.arcadeDrive(0, 0);
+			Timer.delay(12);
 			}
 			else if(Startingp(2)){
 				System.out.println();
@@ -183,10 +189,14 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void testPeriodic() {
+		Startingp = DriverStation.getInstance().getLocation();
+		GameSide = DriverStation.getInstance().getGameSpecificMessage();//get witch side of the switch is friendly
 		//System.out.println("Limit UP"+Limitup.get());
 		//System.out.println("Button 4"+stick.getRawButton(4));
 		//System.out.println("Limit Down"+Limitdw.get());
 		//System.out.println("Button 5"+stick.getRawButton(5));
 		//updw.set(1);
+		System.out.println(GameSide.charAt(0));
+		System.out.println(Startingp);
 	}
 }
