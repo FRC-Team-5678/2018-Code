@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.smartdashboard.*;
 //import jaci.pathfinder.Pathfinder;
 //import jaci.pathfinder.Trajectory;
 //import jaci.pathfinder.Waypoint;
+//import jaci.pathfinder.followers.EncoderFollower;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -51,6 +52,7 @@ public class Robot extends TimedRobot {
 	boolean reversed =(false);
 	String GameSide;
 	int Startingp;
+	
 	
 	/*Waypoint[] points = new Waypoint[] {
 		    new Waypoint(-4, -1, Pathfinder.d2r(-45)),      // Waypoint @ x=-4, y=-1, exit angle=-45 degrees
@@ -105,28 +107,39 @@ public class Robot extends TimedRobot {
 		myRobot.setSafetyEnabled(isDisabled());
 		if(GameSide.charAt(0) == 'L'){
 			if(Startingp==1) {
-			myRobot.arcadeDrive(-1,- 0);
-			Timer.delay(3);
-			myRobot.stopMotor();
-			Timer.delay(.005);
+			myRobot.arcadeDrive(-.8,0);
+			Timer.delay(2);
+			//myRobot.arcadeDrive(0, 1);
+			//Timer.delay(.5);
 			myRobot.arcadeDrive(0, 0);
 			Timer.delay(12);
 			}
-			else if(Startingp(2)){
-				System.out.println();
+			else if(Startingp==2){
+				myRobot.arcadeDrive(-.8,0);
+				Timer.delay(1);
+				myRobot.arcadeDrive(0, .85);
+				Timer.delay(.5);
+				myRobot.arcadeDrive(-.8, 0);
+				Timer.delay(1.15);
+				myRobot.arcadeDrive(0, -.9);
+				Timer.delay(.5);
+				myRobot.arcadeDrive(-.8, 0);
+				Timer.delay(1);
+				myRobot.arcadeDrive(0, 0);
+				Timer.delay(10);
 			}
-			else if(Startingp(3)){
+			else if(Startingp==3){
 				
 			}
 		}
 		else if(GameSide.charAt(0) == 'R'){
-			if(Startingp(1)) {
+			if(Startingp==1) {
 				
 			}
-			else if(Startingp(2)){
+			else if(Startingp==2){
 				
 			}
-			else if(Startingp(3)){
+			else if(Startingp==3){
 				
 			}
 		}
