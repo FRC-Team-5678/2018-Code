@@ -117,6 +117,38 @@ public class Robot extends TimedRobot {
 			else if(Startingp==2){
 				myRobot.arcadeDrive(-.8,0);
 				Timer.delay(1);
+				myRobot.arcadeDrive(0, -.85);
+				Timer.delay(.5);
+				myRobot.arcadeDrive(-.8, 0);
+				Timer.delay(1.15);
+				myRobot.arcadeDrive(0, .9);
+				Timer.delay(.5);
+				myRobot.arcadeDrive(-.8, 0);
+				Timer.delay(1);
+				myRobot.arcadeDrive(0, 0);
+				Timer.delay(10);
+			}
+			else if(Startingp==3){
+				myRobot.arcadeDrive(-.8,0);
+				Timer.delay(2);
+				//myRobot.arcadeDrive(0, 1);
+				//Timer.delay(.5);
+				myRobot.arcadeDrive(0, 0);
+				Timer.delay(12);	
+			}
+		}
+		else if(GameSide.charAt(0) == 'R'){
+			if(Startingp==1) {
+				myRobot.arcadeDrive(-.8,0);
+				Timer.delay(2);
+				//myRobot.arcadeDrive(0, 1);
+				//Timer.delay(.5);
+				myRobot.arcadeDrive(0, 0);
+				Timer.delay(12);
+			}
+			else if(Startingp==2){
+				myRobot.arcadeDrive(-.8,0);
+				Timer.delay(1);
 				myRobot.arcadeDrive(0, .85);
 				Timer.delay(.5);
 				myRobot.arcadeDrive(-.8, 0);
@@ -129,18 +161,12 @@ public class Robot extends TimedRobot {
 				Timer.delay(10);
 			}
 			else if(Startingp==3){
-				
-			}
-		}
-		else if(GameSide.charAt(0) == 'R'){
-			if(Startingp==1) {
-				
-			}
-			else if(Startingp==2){
-				
-			}
-			else if(Startingp==3){
-				
+				myRobot.arcadeDrive(-.8,0);
+				Timer.delay(2);
+				//myRobot.arcadeDrive(0, 1);
+				//Timer.delay(.5);
+				myRobot.arcadeDrive(0, 0);
+				Timer.delay(12);
 			}
 		}
 		
