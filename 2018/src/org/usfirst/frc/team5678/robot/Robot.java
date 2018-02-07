@@ -1,8 +1,7 @@
 /*----------------------------------------------------------------------------*/
-/* Copyright (c) 2017-2018 FIRST. All Rights Reserved.                        */
-/* Open Source Software - may be modified and shared by FRC teams. The code   */
-/* must be accompanied by the FIRST BSD license file in the root directory of */
-/* the project.                                                               */
+/*  Frc 5678 2018 code Power up                                               */
+/*  Version Aries                                                              */
+/*  Programmed by: Andrew levin, walter hicks, Josh tucker                    */
 /*----------------------------------------------------------------------------*/
 
 package org.usfirst.frc.team5678.robot;
@@ -38,20 +37,19 @@ public class Robot extends TimedRobot {
 	private static final String Middle = "Middle";//set for starting in 2 position
 	private static final String kCustomAuto = "My Auto";//Custom Auto
 	private String m_autoSelected;
-	private SendableChooser<String> m_chooser = new SendableChooser<>();
-	
+	private SendableChooser<String> m_chooser = new SendableChooser<>();	
 	//Drive Setup
 	DifferentialDrive myRobot = new DifferentialDrive(L1, R1);
 	
 	//Control Setup
 	Joystick stick = new Joystick(0);
 	Joystick stick2 = new Joystick(1);	
-	double sn = (stick.getThrottle()+1)/2;
+	double sn = (stick.getThrottle()+1)/2;//Sets driving speed
 	
 	//Variables 
-	boolean reversed =(false);
-	String GameSide;
-	int Startingp;
+	boolean reversed =(false);//Reverses robot controls
+	String GameSide;//Sets which side the switch will be on
+	int Startingp;//Sets which starting position we are
 	
 	
 	/*Waypoint[] points = new Waypoint[] {
@@ -186,16 +184,6 @@ public class Robot extends TimedRobot {
 		}*/
 	}
 
-	private void elseif(boolean b) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	private boolean Startingp(int i) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
 	/**
 	 * This function is called periodically during operator control.
 	 */
@@ -228,14 +216,16 @@ public class Robot extends TimedRobot {
 	 */
 	@Override
 	public void testPeriodic() {
-		Startingp = DriverStation.getInstance().getLocation();
-		GameSide = DriverStation.getInstance().getGameSpecificMessage();//get witch side of the switch is friendly
+		System.out.println(stick.getTop());
+		//Startingp = DriverStation.getInstance().getLocation();
+		//GameSide = DriverStation.getInstance().getGameSpecificMessage();//get witch side of the switch is friendly
 		//System.out.println("Limit UP"+Limitup.get());
 		//System.out.println("Button 4"+stick.getRawButton(4));
 		//System.out.println("Limit Down"+Limitdw.get());
 		//System.out.println("Button 5"+stick.getRawButton(5));
 		//updw.set(1);
-		System.out.println(GameSide.charAt(0));
-		System.out.println(Startingp);
+		//System.out.println(GameSide.charAt(0));
+		//System.out.println(Startingp);
+		System.out.println("Andrew Is Amazing");
 	}
 }
