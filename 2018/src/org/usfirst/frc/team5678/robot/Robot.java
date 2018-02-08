@@ -1,6 +1,6 @@
 /*----------------------------------------------------------------------------*/
 /*  Frc 5678 2018 code Power up                                               */
-/*  Version Aries                                                              */
+/*  Version Aries                                                             */
 /*  Programmed by: Andrew levin, walter hicks, Josh tucker                    */
 /*----------------------------------------------------------------------------*/
 
@@ -106,23 +106,23 @@ public class Robot extends TimedRobot {
 		if(GameSide.charAt(0) == 'L'){
 			if(Startingp==1) {
 			myRobot.arcadeDrive(-.8,0);
-			Timer.delay(2);
+			Timer.delay(1);
 			//myRobot.arcadeDrive(0, 1);
 			//Timer.delay(.5);
 			myRobot.arcadeDrive(0, 0);
-			Timer.delay(12);
+			Timer.delay(14);
 			}
 			else if(Startingp==2){
 				myRobot.arcadeDrive(-.8,0);
-				Timer.delay(1);
+				Timer.delay(.3);
 				myRobot.arcadeDrive(0, -.85);
 				Timer.delay(.5);
 				myRobot.arcadeDrive(-.8, 0);
-				Timer.delay(1.15);
+				Timer.delay(.9);
 				myRobot.arcadeDrive(0, .9);
 				Timer.delay(.5);
 				myRobot.arcadeDrive(-.8, 0);
-				Timer.delay(1);
+				Timer.delay(1.5);
 				myRobot.arcadeDrive(0, 0);
 				Timer.delay(10);
 			}
@@ -146,15 +146,15 @@ public class Robot extends TimedRobot {
 			}
 			else if(Startingp==2){
 				myRobot.arcadeDrive(-.8,0);
-				Timer.delay(1);
+				Timer.delay(.3);
 				myRobot.arcadeDrive(0, .85);
-				Timer.delay(.5);
+				Timer.delay(.4);
 				myRobot.arcadeDrive(-.8, 0);
-				Timer.delay(1.15);
+				Timer.delay(1.2);
 				myRobot.arcadeDrive(0, -.9);
-				Timer.delay(.5);
+				Timer.delay(.65);
 				myRobot.arcadeDrive(-.8, 0);
-				Timer.delay(1);
+				Timer.delay(1.5);
 				myRobot.arcadeDrive(0, 0);
 				Timer.delay(10);
 			}
@@ -197,11 +197,11 @@ public class Robot extends TimedRobot {
 			if(stick.getRawButton(7)) {reversed=true;}//if button 7 is pressed reversed=true
 			else if(stick.getRawButton(8)) {reversed=false;}//if button 8 is pressed reversed=false
 			
-			if(reversed){myRobot.arcadeDrive(-stick.getY(), -stick.getX());}//reverse direction
+			if(reversed){myRobot.arcadeDrive(-stick.getY(), stick.getX());}//reverse direction
 			else {myRobot.arcadeDrive(stick.getY(), stick.getX());}//non reverse direction
 			
 			
-			//sets movement based off of - y axis and z axis
+			//sets movement based off of - y axis and x axis
 			Timer.delay(.005);//motor update
 			if(stick.getRawButton(4)&&Limitup.get()) {updw.set(0.25);}//if the 4 button is pressed and the top limit switch isn't dosen't moves claw upwards
 			else if(stick.getRawButton(5)&&Limitdw.get()) {updw.set(-0.25);}//if button 5 is pressed and bottom limit switch isn't the thing will go down
