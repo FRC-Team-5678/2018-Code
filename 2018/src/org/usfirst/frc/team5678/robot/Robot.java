@@ -29,8 +29,7 @@ public class Robot extends TimedRobot {
 	//Motor Setup
 	Spark L1 = new Spark(0);
 	Spark R1 = new Spark(1); 
-	Spark updw = new Spark(2);
-	Spark claw = new Spark(3);
+	Spark Intake1 = new Spark(2);
 	
 	//Smart Dashboard Setup
 	private static final String kDefaultAuto = "Default";//Default Auto
@@ -50,7 +49,8 @@ public class Robot extends TimedRobot {
 	boolean reversed =(false);//Reverses robot controls
 	String GameSide;//Sets which side the switch will be on
 	int Startingp;//Sets which starting position we are
-	
+	static double full = 1;
+	static double half = .5;
 	
 	/*Waypoint[] points = new Waypoint[] {
 		    new Waypoint(-4, -1, Pathfinder.d2r(-45)),      // Waypoint @ x=-4, y=-1, exit angle=-45 degrees
@@ -203,9 +203,9 @@ public class Robot extends TimedRobot {
 			
 			//sets movement based off of - y axis and x axis
 			Timer.delay(.005);//motor update
-			if(stick.getRawButton(4)&&Limitup.get()) {updw.set(0.25);}//if the 4 button is pressed and the top limit switch isn't dosen't moves claw upwards
-			else if(stick.getRawButton(5)&&Limitdw.get()) {updw.set(-0.25);}//if button 5 is pressed and bottom limit switch isn't the thing will go down
-			else{updw.set(0);}
+			if(stick.getRawButton(4)) {Intake1.set(0.25); Timer.delay(full); Intake1.set(0);}//if the 4 button is pressed and the top limit switch isn't dosen't moves claw upwards
+			if(stick.getRawButton(5)) {Intake1.set(0.25); Timer.delay(half); Intake1.set(0);}//if button 5 is pressed and bottom limit switch isn't the thing will go down
+			if(stick.getRawButton(6)) {Intake1.set(-.5); Timer.delay(full); Intake1.set(0);}
 			Timer.delay(.005);
 		}
 		Timer.delay(.005);
