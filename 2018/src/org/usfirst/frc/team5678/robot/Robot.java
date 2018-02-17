@@ -49,8 +49,8 @@ public class Robot extends TimedRobot {
 	boolean reversed =(false);//Reverses robot controls
 	String GameSide;//Sets which side the switch will be on
 	int Startingp;//Sets which starting position we are
-	static double full = 1;
-	static double half = .5;
+	static double full = .75;
+	static double half = .25;
 	
 	/*Waypoint[] points = new Waypoint[] {
 		    new Waypoint(-4, -1, Pathfinder.d2r(-45)),      // Waypoint @ x=-4, y=-1, exit angle=-45 degrees
@@ -227,5 +227,6 @@ public class Robot extends TimedRobot {
 		//System.out.println(GameSide.charAt(0));
 		//System.out.println(Startingp);
 		System.out.println("Andrew Is Amazing");
+		Intake1.set((stick.getThrottle()*-1+1)/2);
 	}
 }
