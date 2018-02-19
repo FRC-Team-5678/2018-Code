@@ -30,7 +30,7 @@ public class Robot extends TimedRobot {
 	Spark L1 = new Spark(0);
 	Spark R1 = new Spark(1); 
 	Spark Intake1 = new Spark(2);
-	
+	Spark Intake2 = new Spark(3);
 	//Smart Dashboard Setup
 	private static final String kDefaultAuto = "Default";//Default Auto
 	private static final String Middle = "Middle";//set for starting in 2 position
@@ -203,10 +203,9 @@ public class Robot extends TimedRobot {
 			
 			//sets movement based off of - y axis and x axis
 			Timer.delay(.005);//motor update
-			if(stick.getRawButton(4)) {Intake1.set(0.25); Timer.delay(full); Intake1.set(0);}//if the 4 button is pressed and the top limit switch isn't dosen't moves claw upwards
-			if(stick.getRawButton(5)) {Intake1.set(0.25); Timer.delay(half); Intake1.set(0);}//if button 5 is pressed and bottom limit switch isn't the thing will go down
-			if(stick.getRawButton(6)) {Intake1.set(-.5); Timer.delay(full); Intake1.set(0);}
-			Timer.delay(.005);
+			if(stick.getRawButton(5)) {Intake1.set(0.25); Intake2.set(-.25); Timer.delay(full); Intake1.set(0); Intake2.set(0); }//if the 4 button is pressed and the top limit switch isn't dosen't moves claw upwards
+			if(stick.getRawButton(3)) {Intake1.set(0.25); Intake2.set(-.25); Timer.delay(half); Intake1.set(0); Intake2.set(0);}//if button 5 is pressed and bottom limit switch isn't the thing will go down
+			if(stick.getRawButton(4)) {Intake1.set(-.5); Intake2.set(.25); Timer.delay(full); Intake1.set(0); Intake2.set(0);}Timer.delay(.005);
 		}
 		Timer.delay(.005);
 	}
