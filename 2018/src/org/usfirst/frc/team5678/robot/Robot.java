@@ -112,7 +112,7 @@ public class Robot extends TimedRobot {
 			myRobot.arcadeDrive(0, 0);
 			Timer.delay(14);
 			}
-			else if(Startingp==2){
+			/*else if(Startingp==2){
 				myRobot.arcadeDrive(-.8,0);
 				Timer.delay(.3);
 				myRobot.arcadeDrive(0, .85);
@@ -126,6 +126,7 @@ public class Robot extends TimedRobot {
 				myRobot.arcadeDrive(0, 0);
 				Timer.delay(12);
 			}
+			*/
 			else if(Startingp==3){
 				myRobot.arcadeDrive(-.8,0);
 				Timer.delay(2);
@@ -144,7 +145,7 @@ public class Robot extends TimedRobot {
 				myRobot.arcadeDrive(0, 0);
 				Timer.delay(12);
 			}
-			else if(Startingp==2){
+			/*else if(Startingp==2){
 				myRobot.arcadeDrive(-.8,0);
 				Timer.delay(.3);
 				myRobot.arcadeDrive(0, -.85);
@@ -157,7 +158,7 @@ public class Robot extends TimedRobot {
 				Timer.delay(1.3);
 				myRobot.arcadeDrive(0, 0);
 				Timer.delay(11.95);
-			}
+			} */
 			else if(Startingp==3){
 				myRobot.arcadeDrive(-.8,0);
 				Timer.delay(2);
@@ -194,8 +195,8 @@ public class Robot extends TimedRobot {
 			//checks to make sure robot is on and in telop mode
 			myRobot.setMaxOutput((stick.getThrottle()*-1+1)/2);
 			
-			if(stick.getRawButton(7)) {reversed=true;}//if button 7 is pressed reversed=true
-			else if(stick.getRawButton(8)) {reversed=false;}//if button 8 is pressed reversed=false
+			if(stick.getRawButton(7) && reversed == false) {reversed=true;}//if button 7 is pressed reversed=true
+			else if(stick.getRawButton(7) && reversed == true) {reversed=false;}
 			
 			if(reversed){myRobot.arcadeDrive(-stick.getY(), stick.getX());}//reverse direction
 			else {myRobot.arcadeDrive(stick.getY(), stick.getX());}//non reverse direction
@@ -203,9 +204,9 @@ public class Robot extends TimedRobot {
 			
 			//sets movement based off of - y axis and x axis
 			Timer.delay(.005);//motor update
-			if(stick.getRawButton(5)) {Intake1.set(0.25); Intake2.set(-.25); Timer.delay(full); Intake1.set(0); Intake2.set(0); }//if the 4 button is pressed and the top limit switch isn't dosen't moves claw upwards
-			if(stick.getRawButton(3)) {Intake1.set(0.25); Intake2.set(-.25); Timer.delay(half); Intake1.set(0); Intake2.set(0);}//if button 5 is pressed and bottom limit switch isn't the thing will go down
-			if(stick.getRawButton(4)) {Intake1.set(-.5); Intake2.set(.25); Timer.delay(full); Intake1.set(0); Intake2.set(0);}Timer.delay(.005);
+			if(stick.getRawButton(5)) {Intake1.set(0.25); Intake2.set(-.25); Timer.delay(full); Intake1.set(0); Intake2.set(0); }Timer.delay(.0005);//if the 4 button is pressed and the top limit switch isn't dosen't moves claw upwards
+			if(stick.getRawButton(3)) {Intake1.set(0.25); Intake2.set(-.25); Timer.delay(half); Intake1.set(0); Intake2.set(0);}Timer.delay(.0005);//if button 5 is pressed and bottom limit switch isn't the thing will go down
+			if(stick.getRawButton(4)) {Intake1.set(-.25); Intake2.set(.25); Timer.delay(full); Intake1.set(0); Intake2.set(0);}Timer.delay(.005);
 		}
 		Timer.delay(.005);
 	}
